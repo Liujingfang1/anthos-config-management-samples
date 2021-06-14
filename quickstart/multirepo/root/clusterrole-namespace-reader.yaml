@@ -4,7 +4,6 @@ metadata:
   name: namespace-reader
   annotations:
     foo: bar
-    bar: foo
 rules:
 - apiGroups: [""]
   resources: ["namespaces"]
