@@ -1,0 +1,142 @@
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: placmc08v8
+spec:
+  crd:
+    spec:
+      names:
+        kind: PLACMC08V8
+  targets:
+  - libs:
+    - |-
+      package lib.core
+
+      default is_gatekeeper = false
+
+      is_gatekeeper {
+        has_field(input, "review")
+        has_field(input.review, "object")
+      }
+
+      resource = input.review.object {
+        is_gatekeeper
+      }
+
+      parameters = input.parameters {
+        is_gatekeeper
+      }
+
+      resource = input {
+        not is_gatekeeper
+      }
+
+      parameters = data.lib.dynamic {
+        not is_gatekeeper
+      }
+
+      default username = ""
+
+      default namespace = ""
+
+      default operation = ""
+
+      default name = ""
+
+      default parameters = {}
+
+      username = input.review.userInfo.username
+
+      operation = input.review.operation
+
+      metadata = resource.metadata
+
+      namespace = metadata.namespace
+
+      name = metadata.name
+
+      kind = resource.kind
+
+      message(policyID, message) = {"msg": msg} {
+        msg := sprintf("[%v][%v][%v][%v][%v][%v] %v", [policyID, username, namespace, operation, kind, name, message])
+      }
+
+      contains_element(arr, elem) {
+        arr[_] == elem
+      }
+
+      has_field(obj, field) {
+        _ = obj[field]
+      }
+
+      kind_in(resourceKinds) {
+        kind == resourceKinds[_]
+      }
+
+      resource_exempt(exemptions) {
+        e := exemptions[_]
+        kind == e.kind
+        name == e.name
+        object.get(metadata, "namespace", false) == object.get(e, "namespace", false)
+      }
+
+      resource_exempt_by_name(exempted_names) {
+        name == exempted_names[_]
+      }
+    rego: |-
+      package acmsync
+
+      import data.lib.core
+
+      policyID := "PL.ACM.C-08"
+
+      default_parameters = {
+        "clusterName": "default-cluster",
+        "syncBranch": "default",
+        "syncRepo": "default",
+      }
+
+      params = object.union(default_parameters, core.parameters)
+
+      violation[msg] {
+        core.kind_in({"ConfigManagement"})
+        not core.has_field(core.resource.spec, "git")
+        msg := core.message(policyID, "missing '.spec.git'")
+      }
+
+      violation[msg] {
+        core.kind_in({"ConfigManagement"})
+        not core.has_field(core.resource.spec, "clusterName")
+        msg := core.message(policyID, "missing '.spec.clusterName'")
+      }
+
+      violation[msg] {
+        core.kind_in({"ConfigManagement"})
+        not core.has_field(core.resource.spec.git, "syncBranch")
+        msg := core.message(policyID, "missing '.spec.git.syncBranch'")
+      }
+
+      violation[msg] {
+        core.kind_in({"ConfigManagement"})
+        not core.has_field(core.resource.spec.git, "syncRepo")
+        msg := core.message(policyID, "missing '.spec.git.syncRepo'")
+      }
+
+      violation[msg] {
+        core.kind_in({"ConfigManagement"})
+        core.resource.spec.clusterName != params.clusterName
+        msg := core.message(policyID, sprintf("'.spec.clusterName == %s' but must be %s.", [core.resource.spec.clusterName, params.clusterName]))
+      }
+
+      violation[msg] {
+        core.kind_in({"ConfigManagement"})
+        core.resource.spec.git.syncBranch != params.syncBranch
+        msg := core.message(policyID, sprintf("'.spec.git.syncBranch == %s' but must be %s.", [core.resource.spec.git.syncBranch, params.syncBranch]))
+      }
+
+      violation[msg] {
+        core.kind_in({"ConfigManagement"})
+        core.resource.spec.git.syncRepo != params.syncRepo
+        msg := core.message(policyID, sprintf("'.spec.syncRepo == %s' but must be %s.", [core.resource.spec.git.syncRepo, params.syncRepo]))
+      }
+    target: admission.k8s.gatekeeper.sh

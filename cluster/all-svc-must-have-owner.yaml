@@ -1,0 +1,14 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: all-svc-must-have-owner
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Service"]
+  parameters:
+    message: "All Service must have an `owner` label that points to your company username"
+    labels:
+      - key: owner
+        allowedRegex: "^[a-zA-Z]+.agilebank.demo$"

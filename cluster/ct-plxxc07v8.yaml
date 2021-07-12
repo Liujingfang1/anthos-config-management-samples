@@ -1,0 +1,134 @@
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: plxxc07v8
+spec:
+  crd:
+    spec:
+      names:
+        kind: PLXXC07V8
+      validation:
+        # Schema for the `parameters` field
+        openAPIV3Schema:
+          properties:
+            invalidName:
+              type: string
+  targets:
+  - libs:
+    - |-
+      package lib.core
+
+      default is_gatekeeper = false
+
+      is_gatekeeper {
+        has_field(input, "review")
+        has_field(input.review, "object")
+      }
+
+      resource = input.review.object {
+        is_gatekeeper
+      }
+
+      parameters = input.parameters {
+        is_gatekeeper
+      }
+
+      resource = input {
+        not is_gatekeeper
+      }
+
+      parameters = data.lib.dynamic {
+        not is_gatekeeper
+      }
+
+      default username = ""
+
+      default namespace = ""
+
+      default operation = ""
+
+      default name = ""
+
+      default parameters = {}
+
+      username = input.review.userInfo.username
+
+      operation = input.review.operation
+
+      metadata = resource.metadata
+
+      namespace = metadata.namespace
+
+      name = metadata.name
+
+      kind = resource.kind
+
+      message(policyID, message) = {"msg": msg} {
+        msg := sprintf("[%v][%v][%v][%v][%v][%v] %v", [policyID, username, namespace, operation, kind, name, message])
+      }
+
+      contains_element(arr, elem) {
+        arr[_] == elem
+      }
+
+      has_field(obj, field) {
+        _ = obj[field]
+      }
+
+      kind_in(resourceKinds) {
+        kind == resourceKinds[_]
+      }
+
+      resource_exempt(exemptions) {
+        e := exemptions[_]
+        kind == e.kind
+        name == e.name
+        object.get(metadata, "namespace", false) == object.get(e, "namespace", false)
+      }
+
+      resource_exempt_by_name(exempted_names) {
+        name == exempted_names[_]
+      }
+    - |-
+      package lib.pods
+
+      import data.lib.core
+
+      pod = core.resource {
+        core.kind == "Pod"
+      }
+
+      pod = core.resource.spec.template {
+        core.kind_in({"DaemonSet", "Deployment", "Job", "ReplicaSet", "ReplicationController", "StatefulSet"})
+      }
+
+      pod = core.resource.spec.jobTemplate.spec.template {
+        core.kind_in({"CronJob"})
+      }
+
+      containers[container] {
+        container := pod.spec.containers[_]
+      }
+
+      containers[container] {
+        container := pod.spec.initContainers[_]
+      }
+
+      volumes[volume] {
+        volume = pod.spec.volumes[_]
+      }
+    rego: |-
+      package deprecatedkinds
+
+      import data.lib.core
+      import data.lib.pods
+
+      params = core.parameters
+
+      policyID := "PL.XX.C-07"
+
+      violation[msg] {
+        core.kind_in(params.deprecatedKinds)
+        msg := core.message(policyID, "Deprecated kinds are not allowed")
+      }
+    target: admission.k8s.gatekeeper.sh
