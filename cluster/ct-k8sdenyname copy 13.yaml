@@ -1,7 +1,7 @@
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
-  name: k8sdenyname13
+  name: k8sdenyname13v1
 spec:
   crd:
     spec:
