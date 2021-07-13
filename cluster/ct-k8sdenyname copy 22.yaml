@@ -1,4 +1,4 @@
-apiVersion: templates.gatekeeper.sh/v1b^Ca1
+apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
   name: k8sdenyname22v2

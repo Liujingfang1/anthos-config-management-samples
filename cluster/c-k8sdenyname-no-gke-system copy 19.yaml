@@ -1,4 +1,4 @@
-apiVersion: constraints.gatekeeper.sh/v1b^Ca1
+apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: K8sDenyName19v2
 metadata:
   name: no-gke-system
