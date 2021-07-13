@@ -6,7 +6,7 @@ spec:
   crd:
     spec:
       names:
-        kind: K8sDenyName22
+        kind: K8sDenyName22v1
       validation:
         # Schema for the `parameters` field
         openAPIV3Schema:

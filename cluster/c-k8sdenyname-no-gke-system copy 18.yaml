@@ -1,5 +1,5 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sDenyName18
+kind: K8sDenyName18v1
 metadata:
   name: no-gke-system
 spec:
