@@ -1,12 +1,12 @@
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
-  name: k8sdenyname3v2
+  name: k8sdenyname3v3
 spec:
   crd:
     spec:
       names:
-        kind: K8sDenyName3v2
+        kind: K8sDenyName3v3
       validation:
         # Schema for the `parameters` field
         openAPIV3Schema:
