@@ -1,5 +1,5 @@
-apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sDenyNamev1
+apiVersion: constraints.gatekeeper.sh/v2beta1
+kind: K8sDenyNamev2
 metadata:
   name: no-policy-violation
 spec:
