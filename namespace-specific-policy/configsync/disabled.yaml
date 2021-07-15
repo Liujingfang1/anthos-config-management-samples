@@ -1,0 +1,14 @@
+apiVersion: blueprints.cloud.google.com/v1alpha3
+kind: ResourceHierarchy
+metadata: # kpt-merge: hierarchy/root-hierarchy
+  name: root-hierarchy
+  namespace: hierarchy # kpt-set: ${namespace}
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    # configmanagement.gke.io/managed: disabled
+spec:
+  config:
+    - texas
+    - vermont
+  parentRef:
+    external: "816421441114" # kpt-set: ${org-id}
