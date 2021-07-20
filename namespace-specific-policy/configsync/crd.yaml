@@ -19,7 +19,7 @@ spec:
           properties:
             spec:
               type: object
-              preserveUnknownFields: true
+              x-kubernetes-preserve-unknown-fields: true
               properties:
                 cronSpec:
                   type: string
