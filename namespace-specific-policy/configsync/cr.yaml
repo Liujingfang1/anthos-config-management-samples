@@ -6,3 +6,5 @@ spec:
   cronSpec: "* * * * */5"
   image: my-awesome-cron-image
   foo: haha
+  parameters:
+    foo: haha
