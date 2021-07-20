@@ -8,3 +8,11 @@ spec:
   foo: haha
   parameters:
     foo: haha
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: PLACMC08V9
+metadata:
+  name: no-policy-violation
+spec:
+  parameters:
+    invalidName: "policy-violation"
