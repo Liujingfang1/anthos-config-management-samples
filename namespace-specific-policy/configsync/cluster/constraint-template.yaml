@@ -1,8 +1,6 @@
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
-#   annotations:
-#     configmanagement.gke.io/cluster-selector: selector-env-anz-x-apps-platint-gke
   labels:
     gatekeeper-policies: v9
     generated: "true"
@@ -20,5 +18,6 @@ spec:
   - libs:
     - |-
       package lib.core
-     < more rego code >
-<end manifest - no more fields after rego code>
+    rego: |-
+      package acmsync
+    target: admission.k8s.gatekeeper.sh
