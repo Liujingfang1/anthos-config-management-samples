@@ -10,10 +10,10 @@ spec:
     spec:
       names:
         kind: PLACMC08V9
-#       validation:
-#         openAPIV3Schema:
-#           type: object
-#           x-kubernetes-preserve-unknown-fields: true
+      validation:
+        openAPIV3Schema:
+          type: object
+          x-kubernetes-preserve-unknown-fields: true
   targets:
   - libs:
     - |-
