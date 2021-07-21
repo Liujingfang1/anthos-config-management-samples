@@ -1,0 +1,21 @@
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  labels:
+    gatekeeper-policies: v9
+    generated: "true"
+  name: placmc08v9
+spec:
+  crd:
+    spec:
+      names:
+        kind: PLACMC08V9
+      validation:
+        openAPIV3Schema:
+          type: object
+          x-kubernetes-preserve-unknown-fields: true
+  targets:
+  - libs:
+    - |-
+      package lib.core
+      
