@@ -1,8 +1,6 @@
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
-  annotations:
-    configmanagement.gke.io/cluster-selector: selector-env-anz-x-apps-platint-gke
   labels:
     gatekeeper-policies: v9
     generated: "true"
