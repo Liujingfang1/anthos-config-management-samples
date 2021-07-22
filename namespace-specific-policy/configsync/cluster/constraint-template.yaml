@@ -24,11 +24,7 @@ spec:
                   type: string
                 image:
                   type: string
-                foo:
-                  type: string
-                bar:
-                  type: string
-                extra:
+                another:
                   type: string
                 replicas:
                   type: integer
@@ -52,7 +48,5 @@ metadata:
 spec:
   cronSpec: "* * * * */5"
   image: my-awesome-cron-image
-  foo: bar
-  bar: foo
-  extra: something
+  another: something
   
