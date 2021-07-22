@@ -26,6 +26,8 @@ spec:
                   type: string
                 foo:
                   type: string
+                bar:
+                  type: string
                 replicas:
                   type: integer
   # either Namespaced or Cluster
@@ -49,3 +51,4 @@ spec:
   cronSpec: "* * * * */5"
   image: my-awesome-cron-image
   foo: bar
+  bar: foo
