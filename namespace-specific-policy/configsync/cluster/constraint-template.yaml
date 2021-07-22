@@ -68,17 +68,6 @@ spec:
   parameters:
     invalidName: "gke-system"
 ---
-apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sDenyName1v3
-metadata:
-  name: no-gke-system
-spec:
-  match:
-    namespaces: 
-      - default
-  parameters:
-    invalidName: "gke-system"
----
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
