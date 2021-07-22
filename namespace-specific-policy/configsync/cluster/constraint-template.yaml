@@ -28,6 +28,8 @@ spec:
                   type: string
                 bar:
                   type: string
+                extra:
+                  type: string
                 replicas:
                   type: integer
   # either Namespaced or Cluster
@@ -52,3 +54,5 @@ spec:
   image: my-awesome-cron-image
   foo: bar
   bar: foo
+  extra: something
+  
