@@ -24,12 +24,6 @@ spec:
                   type: string
                 image:
                   type: string
-                another:
-                  type: string
-                replicas:
-                  type: integer
-                foo:
-                  type: string
   # either Namespaced or Cluster
   scope: Namespaced
   names:
@@ -50,5 +44,3 @@ metadata:
 spec:
   cronSpec: "* * * * */5"
   image: my-awesome-cron-image
-  another: something
-  foo: bar
