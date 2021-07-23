@@ -29,7 +29,7 @@ spec:
                 replicas:
                   type: integer
                 foo:
-                  type: integer
+                  type: string
   # either Namespaced or Cluster
   scope: Namespaced
   names:
