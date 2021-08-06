@@ -49,4 +49,4 @@ spec:
   cronSpec: "* * * * */5"
   image: my-awesome-cron-image
   extra: foeld
-  second: foo
+  # second: foo
