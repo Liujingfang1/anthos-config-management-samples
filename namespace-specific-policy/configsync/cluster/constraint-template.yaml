@@ -26,7 +26,7 @@ spec:
                   type: string
                 image:
                   type: string
-                foo:
+                tartar:
                   type: string
   # either Namespaced or Cluster
   scope: Namespaced
@@ -48,4 +48,4 @@ metadata:
 spec:
   cronSpec: "* * * * */5"
   image: my-awesome-cron-image
-  foo: bar
+  tartar: foo
