@@ -28,6 +28,8 @@ spec:
                   type: string
                 bar:
                   type: string
+                third:
+                  type: string
   # either Namespaced or Cluster
   scope: Namespaced
   names:
@@ -49,4 +51,5 @@ spec:
   cronSpec: "* * * * */5"
   foo: bar
   bar: ssss
+  third: lala
   
