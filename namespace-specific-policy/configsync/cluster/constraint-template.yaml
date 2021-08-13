@@ -48,5 +48,5 @@ metadata:
 spec:
   cronSpec: "* * * * */5"
   foo: bar
-  # bar: ssss
+  bar: ssss
   
