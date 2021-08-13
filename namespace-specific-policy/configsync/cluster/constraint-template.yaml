@@ -51,5 +51,5 @@ spec:
   cronSpec: "* * * * */5"
   foo: bar
   bar: ssss
-  # third: lala
+  third: lala
   
