@@ -3,8 +3,8 @@ kind: CustomResourceDefinition
 metadata:
   # name must match the spec fields below, and be in the form: <plural>.<group>
   name: crontabs.stable.example.com
-  # annotations:
-  #  configmanagement.gke.io/managed: disabled
+  annotations:
+    configmanagement.gke.io/managed: disabled
 spec:
   # group name to use for REST API: /apis/<group>/<version>
   group: stable.example.com
@@ -48,5 +48,5 @@ metadata:
 spec:
   cronSpec: "* * * * */5"
   foo: bar
-  bar: ssss
+  # bar: ssss
   
