@@ -24,6 +24,8 @@ spec:
               properties:
                 cronSpec:
                   type: string
+                foo:
+                  type: string
   # either Namespaced or Cluster
   scope: Namespaced
   names:
@@ -43,4 +45,5 @@ metadata:
   name: my-new-cron-object
 spec:
   cronSpec: "* * * * */5"
+  foo: bar
   
