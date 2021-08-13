@@ -24,8 +24,6 @@ spec:
               properties:
                 cronSpec:
                   type: string
-                image:
-                  type: string
                 tartar:
                   type: string
   # either Namespaced or Cluster
@@ -48,5 +46,5 @@ metadata:
 spec:
   cronSpec: "* * * * */5"
   image: my-awesome-cron-image
-  tartar: foo
+  # tartar: foo
   
