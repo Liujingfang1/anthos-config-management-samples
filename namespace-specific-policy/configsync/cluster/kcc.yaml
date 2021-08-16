@@ -3,5 +3,5 @@
   metadata:
     labels:
       foo: bar
-    name: topic_foo
+    name: topic-foo
     
