@@ -1,14 +1,14 @@
-  apiVersion: pubsub.cnrm.cloud.google.com/v1beta1
-  kind: PubSubTopic
-  metadata:
-    labels:
-      foo: bar
-    name: topic-foo
----
-  apiVersion: pubsub.cnrm.cloud.google.com/v1beta1
-  kind: PubSubTopic
-  metadata:
-    labels:
-      foo: barbar
-    name: topic-bar
+#   apiVersion: pubsub.cnrm.cloud.google.com/v1beta1
+#   kind: PubSubTopic
+#   metadata:
+#     labels:
+#       foo: bar
+#     name: topic-foo
+# ---
+#   apiVersion: pubsub.cnrm.cloud.google.com/v1beta1
+#   kind: PubSubTopic
+#   metadata:
+#     labels:
+#       foo: barbar
+#     name: topic-bar
     
