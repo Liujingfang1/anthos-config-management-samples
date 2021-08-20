@@ -1,0 +1,7 @@
+apiVersion: jingfang.io/v1
+kind: shipping-prod
+metadata:
+  name: foo
+  namespace: shipping-prod
+data:
+  foo: bar
