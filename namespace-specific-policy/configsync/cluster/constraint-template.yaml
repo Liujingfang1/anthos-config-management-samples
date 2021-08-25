@@ -39,6 +39,9 @@ spec:
     shortNames:
     - ct
 ---
+
+
+---
 # apiVersion: "stable.example.com/v1"
 # kind: CronTab
 # metadata:
