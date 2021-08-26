@@ -48,7 +48,7 @@ metadata:
   name: my-new-cron-object
 spec:
   cronSpec: "* * * * */5"
-  # foo: bar
+  foo: bar
   # bar: ssss
   # third: lala
   extra: foo
