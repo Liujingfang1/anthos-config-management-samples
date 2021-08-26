@@ -26,6 +26,8 @@ spec:
                   type: string
                 extra:
                   type: string
+                foo:
+                  type: string
   # either Namespaced or Cluster
   scope: Namespaced
   names:
@@ -49,4 +51,5 @@ metadata:
 spec:
   cronSpec: "* * * * */5"
   extra: foo
+  foo: sofidfoijdsf
   
