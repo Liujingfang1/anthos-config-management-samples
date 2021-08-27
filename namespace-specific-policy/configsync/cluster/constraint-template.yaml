@@ -44,6 +44,12 @@ spec:
     - ct
 ---
 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: foo
+data:
+  foo: bar
 
 ---
 apiVersion: "stable.example.com/v1"
