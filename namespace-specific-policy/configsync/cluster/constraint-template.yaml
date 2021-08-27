@@ -26,11 +26,7 @@ spec:
                   type: string
                 extra:
                   type: string
-                foo:
-                  type: string
-                third:
-                  type: string
-                forth:
+                bar:
                   type: string
   # either Namespaced or Cluster
   scope: Namespaced
@@ -55,7 +51,5 @@ metadata:
 spec:
   cronSpec: "* * * * */5"
   extra: foo
-  foo: sofidfoijdsf
-  third: sldlsk
-  forth: lalal
+  bar: foo
   
