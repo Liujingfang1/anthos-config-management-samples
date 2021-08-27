@@ -28,9 +28,9 @@ spec:
                   type: string
                 foo:
                   type: string
-                second:
-                  type: string
                 third:
+                  type: string
+                forth:
                   type: string
   # either Namespaced or Cluster
   scope: Namespaced
@@ -56,6 +56,6 @@ spec:
   cronSpec: "* * * * */5"
   extra: foo
   foo: sofidfoijdsf
-  second: lala
   third: sldlsk
+  forth: lalal
   
