@@ -58,11 +58,4 @@ spec:
   cronSpec: "* * * * */5"
   bar: foo
   foo: bar
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: foo
-  namespace: FOO
-data:
-  foo: bar
+
