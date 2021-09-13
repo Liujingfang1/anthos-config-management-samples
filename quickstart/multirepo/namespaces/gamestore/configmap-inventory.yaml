@@ -5,6 +5,7 @@ metadata:
   namespace: gamestore
   annotations:
     marketplace.com/comments: "What about chess?"
+    test.annotations/key: "value"
 data:
   single_player: "20"
   cooperative: "60"
