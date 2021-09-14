@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: Store-inventory
+  name: store-inventory
   namespace: gamestore
   annotations:
     marketplace.com/comments: "What about chess?"
