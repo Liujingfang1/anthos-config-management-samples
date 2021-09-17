@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for ns in {1..5000}
+for ns in {1..2500}
 do
   mkdir -p configmaps/$ns
   cat > configmaps/$ns/configmaps.yaml <<EOF
