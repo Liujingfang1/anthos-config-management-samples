@@ -12,7 +12,7 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cm-1
+  name: cm-3
   namespace: my-ns-$ns
 data:
   foo: bar
@@ -21,7 +21,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cm-2
+  name: cm-4
   namespace: my-ns-$ns
 data:
   foo: bar2
