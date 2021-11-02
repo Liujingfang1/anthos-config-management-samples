@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: gamestore
   annotations:
-    configsync.gke.io/cluster-name-selector: foo
+    configsync.gke.io/cluster-name-selector: lpgkcl-a-appctl-usea1-01
