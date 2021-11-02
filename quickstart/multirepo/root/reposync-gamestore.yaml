@@ -6,7 +6,7 @@ metadata:
   name: repo-sync
   namespace: gamestore
   annotations:
-    configsync.gke.io/cluster-name-selector: foo
+    configsync.gke.io/cluster-name-selector: lpgkcl-a-appctl-usea1-01
 spec:
   # Since this is for a namespace repository, the format should be unstructured
   sourceFormat: unstructured
