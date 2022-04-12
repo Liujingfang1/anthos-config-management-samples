@@ -9,6 +9,4 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: gamestore
-  annotations:
-    configsync.gke.io/cluster-name-selector: foo
 
