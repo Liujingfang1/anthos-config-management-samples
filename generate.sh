@@ -26,6 +26,34 @@ metadata:
 data:
   foo: bar2
   bar: my-ns-$ns
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm3
+  namespace: my-ns-$ns
+data:
+  foo: bar2
+  bar: my-ns-$ns
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm4
+  namespace: my-ns-$ns
+data:
+  foo: bar2
+  bar: my-ns-$ns
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm5
+  namespace: my-ns-$ns
+data:
+  foo: bar2
+  bar: my-ns-$ns
 EOF
 
 done
