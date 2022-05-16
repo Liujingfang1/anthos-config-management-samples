@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-ns-954
+  namespace: default
 ---
 apiVersion: v1
 kind: ConfigMap

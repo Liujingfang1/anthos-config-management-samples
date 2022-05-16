@@ -8,6 +8,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-ns-$ns
+  namespace: default
 ---
 apiVersion: v1
 kind: ConfigMap
