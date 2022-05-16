@@ -5,10 +5,9 @@ do
   mkdir -p configmaps/$ns
   cat > configmaps/$ns/configmaps.yaml <<EOF
 apiVersion: v1
-kind: ConfigMap
+kind: Namespace
 metadata:
   name: my-ns-$ns
-  namespace: default
 ---
 apiVersion: v1
 kind: ConfigMap

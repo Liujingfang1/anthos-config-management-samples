@@ -1,8 +1,7 @@
 apiVersion: v1
-kind: ConfigMap
+kind: Namespace
 metadata:
   name: my-ns-943
-  namespace: default
 ---
 apiVersion: v1
 kind: ConfigMap
