@@ -10,6 +10,7 @@ metadata:
 spec:
   # Since this is for a namespace repository, the format should be unstructured
   sourceFormat: unstructured
+  sourceType: git
   git:
     # If you fork this repo, change the url to point to your fork
     repo: https://github.com/GoogleCloudPlatform/anthos-config-management-samples
@@ -33,6 +34,7 @@ metadata:
 spec:
   # Since this is for a namespace repository, the format should be unstructured
   sourceFormat: unstructured
+  sourceType: git
   git:
     # If you fork this repo, change the url to point to your fork
     repo: https://github.com/GoogleCloudPlatform/anthos-config-management-samples
