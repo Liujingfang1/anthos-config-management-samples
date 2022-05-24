@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Configmap
+metadata:
+  name: foo
+  namespace: default
+data:
+  foo: bar
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bar
+  namespace: default
+data:
+  bar: foo
