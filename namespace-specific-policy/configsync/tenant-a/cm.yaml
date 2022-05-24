@@ -3,13 +3,8 @@ kind: ConfigMap
 metadata:
   name: foo
   namespace: default
+  annotations:
+    configmanagement.gke.io/managed: disabled
 data:
   foo: bar
 ---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: bar
-  namespace: default
-data:
-  bar: foo
